@@ -13,7 +13,6 @@
 
 <bottom>
     <HBox alignment="center" spacing="10" style="-fx-padding: 10;">
-        <Button fx:id="ValidateB" style="-fx-background-color: #631D76;" text="Validar" textFill="#fbfbfb" />
         <Button fx:id="RestartB" style="-fx-background-color: #631D76;" text="Reiniciar" textFill="#fbfbfb" />
     </HBox>
 </bottom>
@@ -22,182 +21,182 @@
          <children>
             <AnchorPane layoutX="144.0" layoutY="81.0" style="-fx-background-color: #166088;">
                <children>
-                  <TextField fx:id="cell00" alignment="CENTER" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell00" alignment="CENTER" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell10" alignment="CENTER" editable="false" layoutX="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell10" alignment="CENTER" editable="false" layoutX="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell20" alignment="CENTER" editable="false" layoutX="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell20" alignment="CENTER" editable="false" layoutX="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell01" alignment="CENTER" editable="false" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell01" alignment="CENTER" editable="false" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell11" alignment="CENTER" editable="false" layoutX="32.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell11" alignment="CENTER" editable="false" layoutX="32.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell21" alignment="CENTER" editable="false" layoutX="64.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="1.0">
+                  <TextField fx:id="cell21" alignment="CENTER" editable="false" layoutX="64.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell41" alignment="CENTER" editable="false" layoutX="128.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell41" alignment="CENTER" editable="false" layoutX="128.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell31" alignment="CENTER" editable="false" layoutX="96.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell31" alignment="CENTER" editable="false" layoutX="96.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell30" alignment="CENTER" editable="false" layoutX="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell30" alignment="CENTER" editable="false" layoutX="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell51" alignment="CENTER" editable="false" layoutX="160.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell51" alignment="CENTER" editable="false" layoutX="160.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell50" alignment="CENTER" editable="false" layoutX="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell50" alignment="CENTER" editable="false" layoutX="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell40" alignment="CENTER" editable="false" layoutX="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="1.0">
+                  <TextField fx:id="cell40" alignment="CENTER" editable="false" layoutX="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="1.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell02" alignment="CENTER" editable="false" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell02" alignment="CENTER" editable="false" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell12" alignment="CENTER" editable="false" layoutX="32.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell12" alignment="CENTER" editable="false" layoutX="32.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell22" alignment="CENTER" editable="false" layoutX="64.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell22" alignment="CENTER" editable="false" layoutX="64.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell03" alignment="CENTER" editable="false" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell03" alignment="CENTER" editable="false" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell13" alignment="CENTER" editable="false" layoutX="32.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell13" alignment="CENTER" editable="false" layoutX="32.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell23" alignment="CENTER" editable="false" layoutX="64.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="3.0">
+                  <TextField fx:id="cell23" alignment="CENTER" editable="false" layoutX="64.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell43" alignment="CENTER" editable="false" layoutX="128.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell43" alignment="CENTER" editable="false" layoutX="128.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell33" alignment="CENTER" editable="false" layoutX="96.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell33" alignment="CENTER" editable="false" layoutX="96.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell32" alignment="CENTER" editable="false" layoutX="96.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell32" alignment="CENTER" editable="false" layoutX="96.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell53" alignment="CENTER" editable="false" layoutX="160.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell53" alignment="CENTER" editable="false" layoutX="160.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell52" alignment="CENTER" editable="false" layoutX="160.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell52" alignment="CENTER" editable="false" layoutX="160.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell42" alignment="CENTER" editable="false" layoutX="128.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="3.0">
+                  <TextField fx:id="cell42" alignment="CENTER" editable="false" layoutX="128.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="3.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell04" alignment="CENTER" editable="false" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell04" alignment="CENTER" editable="false" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell14" alignment="CENTER" editable="false" layoutX="32.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell14" alignment="CENTER" editable="false" layoutX="32.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell24" alignment="CENTER" editable="false" layoutX="64.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell24" alignment="CENTER" editable="false" layoutX="64.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell05" alignment="CENTER" editable="false" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell05" alignment="CENTER" editable="false" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell15" alignment="CENTER" editable="false" layoutX="32.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell55" alignment="CENTER" editable="false" layoutX="160.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell25" alignment="CENTER" editable="false" layoutX="64.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="1.0" translateY="5.0">
+                  <TextField fx:id="cell54" alignment="CENTER" editable="false" layoutX="160.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell45" alignment="CENTER" editable="false" layoutX="128.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell44" alignment="CENTER" editable="false" layoutX="128.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell35" alignment="CENTER" editable="false" layoutX="96.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell34" alignment="CENTER" editable="false" layoutX="96.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell34" alignment="CENTER" editable="false" layoutX="96.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell15" alignment="CENTER" editable="false" layoutX="32.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell55" alignment="CENTER" editable="false" layoutX="160.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell35" alignment="CENTER" editable="false" layoutX="96.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell54" alignment="CENTER" editable="false" layoutX="160.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell25" alignment="CENTER" editable="false" layoutX="64.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="1.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cell44" alignment="CENTER" editable="false" layoutX="128.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" style="-fx-text-fill: #000000;" translateX="3.0" translateY="5.0">
+                  <TextField fx:id="cell45" alignment="CENTER" editable="false" layoutX="128.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" translateX="3.0" translateY="5.0">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
