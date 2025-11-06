@@ -36,12 +36,23 @@ public class SudokuController implements Initializable {
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                if (board[i][j] != 0) {
-                    cells[i][j].setText(String.valueOf(board[i][j]));
-                    cells[i][j].setEditable(false);
+
+                final int col = i;
+                final int row = j;
+
+                if (board[col][row] != 0) {
+                    cells[col][row].setText(String.valueOf(board[i][j]));
+                    cells[col][row].setEditable(false);
                 } else {
-                    cells[i][j].clear();
-                    cells[i][j].setEditable(true);
+                    cells[col][row].clear();
+                    cells[col][row].setEditable(true);
+
+                    //validar solo se permite numeros del 1 al 6
+                    cells[col][row].textProperty().addListener((obs, oldValue, newValue) -> {
+                        if (!newValue.matches("[1-6]?")) {
+                            cells[col][row].setText(oldValue);
+                        }
+                    });
                 }
             }
         }
