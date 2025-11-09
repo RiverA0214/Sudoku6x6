@@ -4,45 +4,55 @@ import java.util.Random;
 
 public class SudokuModel {
 
-    private int[][] board;  // tablero 6x6
+    private int[][] board; // tablero visible (con huecos)
+    private int[][] solutionBoard; // tablero con solución completa
     private static final int SIZE = 6;
-    private static final int BLOCK_COLS = 3; // bloques horizontales
-    private static final int BLOCK_ROWS = 2; // bloques verticales
+    private static final int BLOCK_COLS = 3;
+    private static final int BLOCK_ROWS = 2;
     private Random random;
 
     public SudokuModel() {
         board = new int[SIZE][SIZE];
+        solutionBoard = new int[SIZE][SIZE];
         random = new Random();
-        generateFullSolution();
-        removeCellsToLeaveTwoPerBlock();
+
+        generateFullSolution(); // genera sudoku completo en solutionBoard
+        copySolutionToBoard(); // copia la solución a board
+        removeCellsToLeaveTwoPerBlock(); // borra celdas (deja 2 por bloque)
     }
 
     public int[][] getBoard() {
         return board;
     }
 
-    // ===================================================
-    // GENERADOR COMPLETO CON BACKTRACKING
-    // ===================================================
-    private boolean generateFullSolution() {
-        return solveBoard(0, 0);
+    public int[][] getSolutionBoard() {
+        return solutionBoard;
     }
 
-    private boolean solveBoard(int col, int row) {
-        if (col == SIZE) return true;
+    //
+    // GENERA UNA SOLUCIÓN COMPLETA
+    //
+    private void generateFullSolution() {
+        solveBoard(0, 0);
+    }
 
-        int nextCol = (row == SIZE - 1) ? col + 1 : col;
-        int nextRow = (row + 1) % SIZE;
+    private boolean solveBoard(int row, int col) {
+        if (row == SIZE) return true; // terminó
 
-        if (board[col][row] != 0)
-            return solveBoard(nextCol, nextRow);
+        int nextRow = (col == SIZE - 1) ? row + 1 : row;
+        int nextCol = (col + 1) % SIZE;
+
+        if (solutionBoard[row][col] != 0)
+            return solveBoard(nextRow, nextCol);
 
         int[] nums = generateShuffledNumbers();
         for (int num : nums) {
-            if (isSafe(col, row, num)) {
-                board[col][row] = num;
-                if (solveBoard(nextCol, nextRow)) return true;
-                board[col][row] = 0;
+            if (isSafe(row, col, num, solutionBoard)) {
+                solutionBoard[row][col] = num;
+                if (solveBoard(nextRow, nextCol)) {
+                    return true;
+                }
+                solutionBoard[row][col] = 0;
             }
         }
         return false;
@@ -59,30 +69,40 @@ public class SudokuModel {
         return nums;
     }
 
-    // ===================================================
-    // REMOVER CELDAS HASTA DEJAR 2 POR BLOQUE
-    // ===================================================
-    private void removeCellsToLeaveTwoPerBlock() {
-        for (int blockCol = 0; blockCol < SIZE; blockCol += BLOCK_COLS) {
-            for (int blockRow = 0; blockRow < SIZE; blockRow += BLOCK_ROWS) {
-                removeAllButTwo(blockCol, blockRow);
+    //
+    // Copia la solucion al tablero visible
+    //
+    private void copySolutionToBoard() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                board[i][j] = solutionBoard[i][j];
             }
         }
     }
 
-    private void removeAllButTwo(int startCol, int startRow) {
-        int[][] positions = new int[BLOCK_COLS * BLOCK_ROWS][2];
-        int index = 0;
+    //
+    // Borra celdas hasta dejar dos por bloque
+    //
+    private void removeCellsToLeaveTwoPerBlock() {
+        for (int blockRow = 0; blockRow < SIZE; blockRow += BLOCK_ROWS) {
+            for (int blockCol = 0; blockCol < SIZE; blockCol += BLOCK_COLS) {
+                removeAllButTwo(blockRow, blockCol);
+            }
+        }
+    }
 
-        for (int c = 0; c < BLOCK_COLS; c++) {
-            for (int r = 0; r < BLOCK_ROWS; r++) {
-                positions[index][0] = startCol + c;
-                positions[index][1] = startRow + r;
+    private void removeAllButTwo(int startRow, int startCol) {
+        int[][] positions = new int[BLOCK_ROWS * BLOCK_COLS][2];
+        int index = 0;
+        for (int r = 0; r < BLOCK_ROWS; r++) {
+            for (int c = 0; c < BLOCK_COLS; c++) {
+                positions[index][0] = startRow + r;
+                positions[index][1] = startCol + c;
                 index++;
             }
         }
 
-        // barajar posiciones
+        // baraja posiciones
         for (int i = positions.length - 1; i > 0; i--) {
             int j = random.nextInt(i + 1);
             int[] temp = positions[i];
@@ -90,70 +110,66 @@ public class SudokuModel {
             positions[j] = temp;
         }
 
-        // eliminar todas menos 2
+        // deja solo 2 números
         for (int i = 2; i < positions.length; i++) {
-            int c = positions[i][0];
-            int r = positions[i][1];
-            board[c][r] = 0;
+            int r = positions[i][0];
+            int c = positions[i][1];
+            board[r][c] = 0;
         }
     }
 
-    // ===================================================
+    //
     // VALIDACIONES
-    // ===================================================
-    private boolean isSafe(int col, int row, int num) {
-        // verifica fila
+    //
+    private boolean isSafe(int row, int col, int num, int[][] targetBoard) {
+        // fila
         for (int c = 0; c < SIZE; c++) {
-            if (board[c][row] == num) return false;
+            if (targetBoard[row][c] == num) return false;
         }
 
-        // verifica columna
+        // columna
         for (int r = 0; r < SIZE; r++) {
-            if (board[col][r] == num) return false;
+            if (targetBoard[r][col] == num) return false;
         }
 
-        // verifica bloque 3x2
-        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+        // bloque
         int startRow = (row / BLOCK_ROWS) * BLOCK_ROWS;
-
-        for (int c = 0; c < BLOCK_COLS; c++) {
-            for (int r = 0; r < BLOCK_ROWS; r++) {
-                if (board[startCol + c][startRow + r] == num)
-                    return false;
+        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+        for (int r = 0; r < BLOCK_ROWS; r++) {
+            for (int c = 0; c < BLOCK_COLS; c++) {
+                if (targetBoard[startRow + r][startCol + c] == num) return false;
             }
         }
 
         return true;
     }
 
-    public boolean hasConflict(int[][] currentBoard, int col, int row, int num) {
+    public boolean hasConflict(int[][] currentBoard, int row, int col, int num) {
         if (num == 0) return false;
 
-        // Revisa fila (misma row)
+        // fila
         for (int c = 0; c < SIZE; c++) {
-            if (c != col && currentBoard[c][row] == num)
+            if (c != col && currentBoard[row][c] == num)
                 return true;
         }
 
-        // Revisa columna (misma col)
+        // columna
         for (int r = 0; r < SIZE; r++) {
-            if (r != row && currentBoard[col][r] == num)
+            if (r != row && currentBoard[r][col] == num)
                 return true;
         }
 
-        // Revisa bloque
-        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+        // bloque
         int startRow = (row / BLOCK_ROWS) * BLOCK_ROWS;
-
-        for (int c = 0; c < BLOCK_COLS; c++) {
-            for (int r = 0; r < BLOCK_ROWS; r++) {
-                int cc = startCol + c;
+        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+        for (int r = 0; r < BLOCK_ROWS; r++) {
+            for (int c = 0; c < BLOCK_COLS; c++) {
                 int rr = startRow + r;
-                if (!(cc == col && rr == row) && currentBoard[cc][rr] == num)
+                int cc = startCol + c;
+                if (!(rr == row && cc == col) && currentBoard[rr][cc] == num)
                     return true;
             }
         }
-
         return false;
     }
 }

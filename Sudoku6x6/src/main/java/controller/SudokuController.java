@@ -8,7 +8,7 @@ import model.SudokuModel;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//fx:controller="controller.SudokuController"
+// fx:controller="controller.SudokuController"
 
 public class SudokuController implements Initializable {
     @FXML private TextField cell00, cell01, cell02, cell03, cell04, cell05;
@@ -27,42 +27,45 @@ public class SudokuController implements Initializable {
         model = new SudokuModel();
         board = model.getBoard();
 
+        // se inicializan las celdas
         cells = new TextField[][]{
-                {cell00,cell01,cell02,cell03,cell04,cell05},
-                {cell10,cell11,cell12,cell13,cell14,cell15},
-                {cell20,cell21,cell22,cell23,cell24,cell25},
-                {cell30,cell31,cell32,cell33,cell34,cell35},
-                {cell40,cell41,cell42,cell43,cell44,cell45},
-                {cell50,cell51,cell52,cell53,cell54,cell55}
+                {cell00, cell01, cell02, cell03, cell04, cell05},
+                {cell10, cell11, cell12, cell13, cell14, cell15},
+                {cell20, cell21, cell22, cell23, cell24, cell25},
+                {cell30, cell31, cell32, cell33, cell34, cell35},
+                {cell40, cell41, cell42, cell43, cell44, cell45},
+                {cell50, cell51, cell52, cell53, cell54, cell55}
         };
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
+        // Recorre por filas (row) y columnas (col)
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
 
-                final int col = i;
-                final int row = j;
-
-                if (board[col][row] != 0) {
-                    cells[col][row].setText(String.valueOf(board[i][j]));
-                    cells[col][row].setEditable(false);
-                    cells[col][row].setStyle("-fx-text-fill: black; -fx-background-color: white;");
+                //los numeros inicales negros y no editables y las celdas vacias grises y editables
+                if (board[row][col] != 0) {
+                    cells[row][col].setText(String.valueOf(board[row][col]));
+                    cells[row][col].setEditable(false);
+                    cells[row][col].setStyle("-fx-text-fill: black; -fx-background-color: white;");
                 } else {
-                    cells[col][row].clear();
-                    cells[col][row].setEditable(true);
-                    cells[col][row].setStyle("-fx-text-fill: gray; -fx-background-color: white;");
+                    cells[row][col].clear();
+                    cells[row][col].setEditable(true);
+                    cells[row][col].setStyle("-fx-text-fill: gray; -fx-background-color: white;");
 
-                    //validar solo se permite numeros del 1 al 6
-                    cells[col][row].textProperty().addListener((obs, oldValue, newValue) -> {
+                    final int r = row;
+                    final int c = col;
+
+                    // Validar solo números del 1 al 6
+                    cells[r][c].textProperty().addListener((obs, oldValue, newValue) -> {
                         if (!newValue.matches("[1-6]?")) {
-                            cells[col][row].setText(oldValue);
+                            cells[r][c].setText(oldValue);
                             return;
                         }
 
-                        // actualiza modelo
+                        // Actualiza el modelo
                         int value = newValue.isEmpty() ? 0 : Integer.parseInt(newValue);
-                        board[col][row] = value;
+                        board[r][c] = value;
 
-                        //valida el tablero
+                        // Valida el tablero
                         validateConflicts();
                     });
                 }
@@ -71,28 +74,47 @@ public class SudokuController implements Initializable {
     }
 
     private void validateConflicts() {
-        // limpia colores
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                // si la celda es fija, mantenerla gris
-                if (!cells[i][j].isEditable()) {
-                    cells[i][j].setStyle("-fx-text-fill: black; -fx-background-color: white;");
+        // Limpia colores
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
+                if (!cells[row][col].isEditable()) {
+                    cells[row][col].setStyle("-fx-text-fill: black; -fx-background-color: white;");
                 } else {
-                    cells[i][j].setStyle("-fx-text-fill: gray; -fx-background-color: white;");
+                    cells[row][col].setStyle("-fx-text-fill: gray; -fx-background-color: white;");
                 }
             }
         }
 
-        // revisa conflictos
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                int num = board[i][j];
-                if (num != 0 && model.hasConflict(board, i, j, num)) {
-                    // pinta rosado
-                    cells[i][j].setStyle("-fx-background-color: #FFB6C1;");
+        // Revisa conflictos
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
+                int num = board[row][col];
+                if (num != 0 && model.hasConflict(board, row, col, num)) {
+                    // Pinta rosado si hay conflicto
+                    cells[row][col].setStyle("-fx-background-color: #FFB6C1;");
                 }
             }
         }
     }
 
+    @FXML
+    private void onHintButtonClick() {
+        int[][] solution = model.getSolutionBoard();
+
+        // Busca una celda vacía aleatoria
+        for (int attempt = 0; attempt < 100; attempt++) {
+            int row = (int) (Math.random() * 6);
+            int col = (int) (Math.random() * 6);
+
+            //ingresa el numero segun la tabla de solucion y lo pone azul
+            if (board[row][col] == 0) {
+                int value = solution[row][col];
+                board[row][col] = value;
+                cells[row][col].setText(String.valueOf(value));
+                cells[row][col].setEditable(true);
+                cells[row][col].setStyle("-fx-text-fill: blue; -fx-background-color: white;");
+                return;
+            }
+        }
+    }
 }
