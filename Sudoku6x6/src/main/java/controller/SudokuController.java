@@ -8,9 +8,15 @@ import model.SudokuModel;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-// fx:controller="controller.SudokuController"
-
+/**
+ * Controller class for managing the logic and user interactions
+ * of the 6x6 Sudoku game.
+ * <p>
+ * This class initializes the Sudoku board, handles input validation,
+ * highlights conflicts, and processes hint requests.
+ */
 public class SudokuController implements Initializable {
+
     @FXML private TextField cell00, cell01, cell02, cell03, cell04, cell05;
     @FXML private TextField cell10, cell11, cell12, cell13, cell14, cell15;
     @FXML private TextField cell20, cell21, cell22, cell23, cell24, cell25;
@@ -22,12 +28,19 @@ public class SudokuController implements Initializable {
     private SudokuModel model;
     private int[][] board;
 
+    /**
+     * Initializes the Sudoku board, configures editable cells,
+     * assigns listeners for input validation, and loads the initial puzzle.
+     *
+     * @param url not used
+     * @param resourceBundle not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         model = new SudokuModel();
         board = model.getBoard();
 
-        // se inicializan las celdas
+        // Initialize 6x6 grid of TextFields
         cells = new TextField[][]{
                 {cell00, cell01, cell02, cell03, cell04, cell05},
                 {cell10, cell11, cell12, cell13, cell14, cell15},
@@ -37,16 +50,18 @@ public class SudokuController implements Initializable {
                 {cell50, cell51, cell52, cell53, cell54, cell55}
         };
 
-        // Recorre por filas (row) y columnas (col)
+        // Configure each cell based on the initial puzzle
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
 
-                //los numeros inicales negros y no editables y las celdas vacias grises y editables
+                // Pre-filled cells: black text, non-editable
                 if (board[row][col] != 0) {
                     cells[row][col].setText(String.valueOf(board[row][col]));
                     cells[row][col].setEditable(false);
                     cells[row][col].setStyle("-fx-text-fill: black; -fx-background-color: white;");
-                } else {
+                }
+                // Editable cells: gray text, empty, with validation listener
+                else {
                     cells[row][col].clear();
                     cells[row][col].setEditable(true);
                     cells[row][col].setStyle("-fx-text-fill: gray; -fx-background-color: white;");
@@ -54,18 +69,16 @@ public class SudokuController implements Initializable {
                     final int r = row;
                     final int c = col;
 
-                    // Validar solo números del 1 al 6
+                    // Accept only numbers 1–6
                     cells[r][c].textProperty().addListener((obs, oldValue, newValue) -> {
                         if (!newValue.matches("[1-6]?")) {
                             cells[r][c].setText(oldValue);
                             return;
                         }
 
-                        // Actualiza el modelo
                         int value = newValue.isEmpty() ? 0 : Integer.parseInt(newValue);
                         board[r][c] = value;
 
-                        // Valida el tablero
                         validateConflicts();
                     });
                 }
@@ -73,8 +86,15 @@ public class SudokuController implements Initializable {
         }
     }
 
+    /**
+     * Validates the current board state and highlights conflicting cells
+     * by changing their background color to pink.
+     * <p>
+     * Non-editable cells are always styled in black text,
+     * editable cells in gray text unless part of a conflict.
+     */
     private void validateConflicts() {
-        // Limpia colores
+        // Reset styles
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
                 if (!cells[row][col].isEditable()) {
@@ -85,28 +105,33 @@ public class SudokuController implements Initializable {
             }
         }
 
-        // Revisa conflictos
+        // Highlight conflicts
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 6; col++) {
                 int num = board[row][col];
                 if (num != 0 && model.hasConflict(board, row, col, num)) {
-                    // Pinta rosado si hay conflicto
                     cells[row][col].setStyle("-fx-background-color: #FFB6C1;");
                 }
             }
         }
     }
 
+    /**
+     * Handles the "Hint" button action.
+     * <p>
+     * Selects a random empty cell and fills it with the correct value
+     * from the solution board, marking it with blue text.
+     */
     @FXML
     private void onHintButtonClick() {
         int[][] solution = model.getSolutionBoard();
 
-        // Busca una celda vacía aleatoria
+        // Attempt up to 100 random empty cells
         for (int attempt = 0; attempt < 100; attempt++) {
             int row = (int) (Math.random() * 6);
             int col = (int) (Math.random() * 6);
 
-            //ingresa el numero segun la tabla de solucion y lo pone azul
+            // Fill the chosen cell with the solution value
             if (board[row][col] == 0) {
                 int value = solution[row][col];
                 board[row][col] = value;
